@@ -25,8 +25,8 @@ console.log(getHumanChoice())
 // Create two new variables named humanScore and computerScore in the global scope.
 // Initialize those variables with the value of 0.
 
-const humanScore = 0
-const computerScore = 0
+let humanScore = 0;      
+let computerScore = 0;   
 
 // Create a new function named playRound.
 // Define two parameters for playRound: humanChoice and computerChoice. Use these two parameters to take the human and computer choices as arguments.
@@ -45,9 +45,13 @@ function playRound(humanChoice, computerChoice) {
         (human === "scissors" && computer === "paper") ||
         (human === "paper" && computer === "rock")
     ) {
+        humanScore++
         return `You win! ${human.charAt(0).toUpperCase() + human.slice(1)} beats ${computer}`;
+        
     } else {
+        computerScore++
         return `You lose! ${computer.charAt(0).toUpperCase() + computer.slice(1)} beats ${human}`;
+        
     }
 }
   
