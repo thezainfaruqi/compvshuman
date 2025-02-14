@@ -22,8 +22,8 @@ This is a simple interactive game where a human player competes against a comput
 ## Installation  
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/thezainfaruqi/compvshuman
+   cd compvshuman
    ```
 2. Open the `index.html` file in a browser (if applicable) or run the game in your JavaScript environment.  
 
