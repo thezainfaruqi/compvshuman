@@ -1,3 +1,17 @@
+let humanScore = 0;      
+let computerScore = 0;  
+let roundNumber = 0 
+
+
+const rock = document.querySelector(".rock")
+const paper = document.querySelector(".paper")
+const scissors = document.querySelector(".scissor")
+const message = document.querySelector(".message")
+
+rock.addEventListener("click", () => playRound("rock"))
+paper.addEventListener("click", () => playRound("paper"))
+scissors.addEventListener("click", () => playRound("scissors"))
+
 function getComputerChoice() {
     let randomNum = Math.random(); 
 
@@ -10,51 +24,49 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let input = prompt("Please type your choice, rock/paper/scissors")
-    return input
-}
-  
-function playgame() {
 
-    let humanScore = 0;      
-    let computerScore = 0;  
-    let roundNumber = 0 
+function playRound(humanChoice, computerChoice) {
+    const human = humanChoice; 
+    const computer = computerChoice; 
+    let resultMsg = "";
 
-    function playRound(humanChoice, computerChoice) {
-        const human = humanChoice.toLowerCase(); 
-        const computer = computerChoice.toLowerCase(); 
-    
-        if (human === computer) {
-            return `It's a tie! Both chose ${human}`;
-        } else if (
-            (human === "rock" && computer === "scissors") ||
-            (human === "scissors" && computer === "paper") ||
-            (human === "paper" && computer === "rock")
-        ) {
-            humanScore++
-            return `You win! ${human.charAt(0).toUpperCase() + human.slice(1)} beats ${computer}`;
+    if (human === computer) {
+        return `It's a tie! Both chose ${human}`;
+    } else if (
+        (human === "rock" && computer === "scissors") ||
+        (human === "scissors" && computer === "paper") ||
+        (human === "paper" && computer === "rock")
+    ) {
+        humanScore++
+        resultMsg = `You win! ${human.charAt(0).toUpperCase() + human.slice(1)} beats ${computer}`; // human.charAt(0) to cap "r" => "R" and slice(1) = ock 
             
-        } else {
-            computerScore++
-            return `You lose! ${computer.charAt(0).toUpperCase() + computer.slice(1)} beats ${human}`;
-        }   
-    }
-
-    while (roundNumber < 5) {
-        const humanChoice = getHumanChoice()
-        const computerChoice = getComputerChoice()
-        console.log(playRound(humanChoice, computerChoice)); 
-        roundNumber++
-    }
-
-    if (humanScore > computerScore) {
-        console.log("You win the game!");
-    } else if (computerScore > humanScore) {
-        console.log("You lose the game!");
     } else {
-        console.log("It's a tie game!");
+        computerScore++
+        resultMsg = `You lose! ${computer.charAt(0).toUpperCase() + computer.slice(1)} beats ${human}`;
+    }   
+    
+    roundNumber++ // after everything done ill just increment it by one
+    message.textContent = resultMsg; // displays the message
+
+    if (humanScore == 5) {
+        message.textContent = "You won the game!";
+        resetGame()
+    } else if (computerScore == 5) {
+        message.textContent = "You lost the game!";
+        resetGame()
+    } else if (humanScore == computerScore) {
+        message.textContent = "Its a tie!"; 
+        resetGame()
     }
+
 }
 
-playgame();
+function resetGame() {
+    // Reset scores and round number for a new game
+    humanScore = 0;
+    computerScore = 0;
+    roundNumber = 0;
+}
+
+
+

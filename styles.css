@@ -1,0 +1,56 @@
+body {
+    background-color: rgba(0, 0, 0, 0.8); 
+}
+
+
+/* Styling for rock button */
+button.rock {
+    background-color: lightgreen;
+    padding: 20px 40px;  /* Increase padding for larger buttons */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;  /* Larger text */
+    width: 250px;  /* Set width */
+    height: 160px;  /* Set height */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; 
+}
+
+/* Styling for paper button */
+button.paper {
+    background-color: lightblue;
+    padding: 20px 40px;  /* Increase padding for larger buttons */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;  /* Larger text */
+    width: 250px;  /* Set width */
+    height: 160px;  /* Set height */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer; 
+}
+
+/* Styling for scissor button */
+button.scissor {
+    background-color: lightcoral;
+    padding: 20px 40px;  /* Increase padding for larger buttons */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;  /* Larger text */
+    width: 250px;  /* Set width */
+    height: 160px;  /* Set height */
+    transition: transform 0.1s ease, background-color 0.3s ease;
+    cursor: pointer; 
+}
+
+button:hover {
+    transform: scale(1.05);  /* Slightly enlarge the button */
+    background-color: deepskyblue;  /* Change background color on hover */
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 310px;
+    gap: 20px;
+    
+}
