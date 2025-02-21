@@ -8,9 +8,9 @@ const paper = document.querySelector(".paper")
 const scissors = document.querySelector(".scissor")
 const message = document.querySelector(".message")
 
-rock.addEventListener("click", () => playRound("rock"))
-paper.addEventListener("click", () => playRound("paper"))
-scissors.addEventListener("click", () => playRound("scissors"))
+rock.addEventListener("click", () => playRound("rock", getComputerChoice()));
+paper.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissors.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 
 function getComputerChoice() {
     let randomNum = Math.random(); 
@@ -31,7 +31,7 @@ function playRound(humanChoice, computerChoice) {
     let resultMsg = "";
 
     if (human === computer) {
-        return `It's a tie! Both chose ${human}`;
+        resultMsg = `It's a tie! Both chose ${human}`;
     } else if (
         (human === "rock" && computer === "scissors") ||
         (human === "scissors" && computer === "paper") ||
