@@ -66,7 +66,7 @@ function resetGame() {
     humanScore = 0;
     computerScore = 0;
     roundNumber = 0;
-}
+} // This reset's the game
 
 
 
